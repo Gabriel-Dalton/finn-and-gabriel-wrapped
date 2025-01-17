@@ -4,12 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finn & Gabriel Wrapped</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
@@ -21,50 +17,39 @@
       height: 100%;
       overflow: hidden;
     }
-
-    /* Wrapper for slides */
     .wrapper {
       position: relative;
       width: 100%;
       height: 100vh;
     }
-
-    /* Each Slide */
     .slide {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      display: none; /* All slides hidden initially */
+      display: none;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       text-align: center;
       transition: opacity 0.5s ease-in-out;
     }
-
-    /* Active Slide */
     .slide.active {
-      display: flex; /* Show the active slide */
+      display: flex;
     }
-
-    /* Slide Content */
     .slide h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
     }
-
     .slide p {
       font-size: 1.2rem;
       max-width: 600px;
       line-height: 1.5;
     }
-
-    /* Button Styling */
     .next-button {
       margin-top: 2rem;
-      background-color: #1db954; /* Spotify Green */
+      background-color: #1db954;
       color: black;
       border: none;
       border-radius: 30px;
@@ -74,99 +59,78 @@
       font-weight: bold;
       text-transform: uppercase;
     }
-
-    /* Image Styling */
     .slide img {
-      max-width: 80%;
-      height: auto;
+      max-width: 60%;
+      max-height: 60%;
+      object-fit: cover;
       border-radius: 10px;
       margin-top: 1rem;
     }
-
-    /* Background Colors for Each Slide */
     #slide-1 {
-      background-color: #1db954; /* Spotify Green */
+      background-color: #1db954;
       color: black;
     }
     #slide-2 {
-      background-color: #191414; /* Spotify Black */
+      background-color: #191414;
       color: white;
     }
     #slide-3 {
-      background-color: #f75788; /* Pink */
+      background-color: #f75788;
       color: white;
     }
     #slide-4 {
-      background-color: #f3a712; /* Yellow */
+      background-color: #f3a712;
       color: black;
     }
     #slide-5 {
-      background-color: #fcef76; /* Pale Yellow */
+      background-color: #fcef76;
       color: black;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- Slide 1 -->
     <div class="slide active" id="slide-1">
       <h1>Finn & Gabriel</h1>
       <p>Welcome to our <strong>10-Day Wrapped</strong> experience!</p>
-      <img src="WhatsApp Image 2025-01-17 at 06.46.38_1734d875.jpg" alt="Finn in the elevator" />
+      <img src="/assets/walk.png" alt="Finn in the elevator" />
       <button class="next-button" onclick="nextSlide()">Next</button>
     </div>
-
-    <!-- Slide 2 -->
     <div class="slide" id="slide-2">
       <h1>110% Fun</h1>
       <p>We maximized belly rubs, fetch marathons, and midday naps.</p>
-      <img src="WhatsApp Image 2025-01-17 at 06.46.38_a2821850.jpg" alt="Finn resting" />
+      <img src="/assets/sleeping.png" alt="Finn resting" />
       <button class="next-button" onclick="nextSlide()">Next</button>
     </div>
-
-    <!-- Slide 3 -->
     <div class="slide" id="slide-3">
       <h1>Daily Adventures</h1>
       <p>Long walks, new smells, and plenty of tail-wagging excitement.</p>
-      <img src="WhatsApp Image 2025-01-17 at 06.46.38_f723d242.jpg" alt="Finn looking majestic" />
+      <img src="/assets/headshot.png" alt="Finn looking majestic" />
       <button class="next-button" onclick="nextSlide()">Next</button>
     </div>
-
-    <!-- Slide 4 -->
     <div class="slide" id="slide-4">
       <h1>Grooming Day</h1>
       <p>Look at all the fur we brushed out! Finn’s a fluffy superstar.</p>
-      <img src="finn_hair.jpg" alt="Finn's hair after grooming" />
+      <img src="/assets/coat.png" alt="Finn's hair after grooming" />
       <button class="next-button" onclick="nextSlide()">Next</button>
     </div>
-
-    <!-- Slide 5 -->
     <div class="slide" id="slide-5">
       <h1>See You Soon!</h1>
       <p>Thank you for letting me spend quality time with Finn—he’s the best!</p>
-      <img src="WhatsApp Image 2025-01-17 at 06.46.38_a2821850.jpg" alt="Finn resting peacefully" />
       <button class="next-button" onclick="nextSlide()">Restart</button>
     </div>
   </div>
-
   <script>
-    // JavaScript to control the slideshow
-    let currentSlide = 1; // Start at slide 1
-    const totalSlides = 5; // Total number of slides
-
+    let currentSlide = 1;
+    const totalSlides = 5;
     function nextSlide() {
-      // Remove the 'active' class from the current slide
       const current = document.getElementById(`slide-${currentSlide}`);
       current.classList.remove('active');
-
-      // Increment or reset slide index
       if (currentSlide < totalSlides) {
         currentSlide++;
       } else {
-        currentSlide = 1; // Restart from the first slide
+        currentSlide = 1;
       }
-
-      // Add the 'active' class to the next slide
       const next = document.getElementById(`slide-${currentSlide}`);
       next.classList.add('active');
     }
